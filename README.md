@@ -1,6 +1,3 @@
-# todo
-
-A new Flutter project.
 ![5q246z](https://user-images.githubusercontent.com/53064323/136852409-6bcdd24d-622e-44cf-a711-6134900ef38a.gif)
 
 ## Getting Started
