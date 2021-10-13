@@ -138,6 +138,11 @@ class _HomePageState extends State<HomePage> {
                   Model2 model2 = Model2();
                   model2.title = modelList[b].title;
                   model2.details = modelList[b].details;
+                  DateTime now = DateTime.now();
+                  String formattedDate =
+                      DateFormat('yyyy-MM-dd – kk:mm').format(now);
+                  model2.data = formattedDate;
+
                   modelList2.add(model2);
                   modelList.removeAt(b);
                 });
@@ -266,6 +271,8 @@ class CompletedPage extends StatelessWidget {
             title: Text(
               modelList2[index].title.toString(),
             ),
+            trailing: Text(
+                "Görev Tamamlama Tarihi: \n${modelList2[index].data.toString()}"),
           );
         },
       ),
