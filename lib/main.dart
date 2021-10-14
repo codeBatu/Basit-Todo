@@ -38,7 +38,7 @@ class Archive {
   String? data;
 }
 
-List<Archive> modelList2 = [];
+List<Archive> archiveList = [];
 List<Model> modelList = [];
 
 class _HomePageState extends State<HomePage> {
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                         top: 1,
                         left: 15,
                         child: Text(
-                          modelList2.length.toString(),
+                          archiveList.length.toString(),
                           style: const TextStyle(
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                       DateFormat('yyyy-MM-dd – kk:mm').format(now);
                   archive.data = formattedDate;
 
-                  modelList2.add(archive);
+                  archiveList.add(archive);
                   modelList.removeAt(b);
                 });
               },
@@ -269,14 +269,14 @@ class CompletedPage extends StatelessWidget {
         title: const Text("Tamamlanmış Görevler"),
       ),
       body: ListView.builder(
-        itemCount: modelList2.length,
+        itemCount: archiveList.length,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
             title: Text(
-              modelList2[index].title.toString(),
+              archiveList[index].title.toString(),
             ),
             trailing: Text(
-                "Görev Tamamlama Tarihi: \n${modelList2[index].data.toString()}"),
+                "Görev Tamamlama Tarihi: \n${archiveList[index].data.toString()}"),
           );
         },
       ),
