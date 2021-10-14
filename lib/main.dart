@@ -33,12 +33,12 @@ class Model {
   String? details;
 }
 
-class Model2 {
+class Archive {
   String? title;
   String? data;
 }
 
-List<Model2> modelList2 = [];
+List<Archive> modelList2 = [];
 List<Model> modelList = [];
 
 class _HomePageState extends State<HomePage> {
@@ -134,15 +134,15 @@ class _HomePageState extends State<HomePage> {
               ),
               onDismissed: (DismissDirection direction) {
                 setState(() {
-                  Model2 model2 = Model2();
-                  model2.title = modelList[b].title;
+                  Archive archive = Archive();
+                  archive.title = modelList[b].title;
 
                   DateTime now = DateTime.now();
                   String formattedDate =
                       DateFormat('yyyy-MM-dd – kk:mm').format(now);
-                  model2.data = formattedDate;
+                  archive.data = formattedDate;
 
-                  modelList2.add(model2);
+                  modelList2.add(archive);
                   modelList.removeAt(b);
                 });
               },
@@ -211,7 +211,9 @@ class _HomePageState extends State<HomePage> {
                             String formattedDate =
                                 DateFormat('yyyy-MM-dd – kk:mm').format(now);
                             model.data = formattedDate;
+
                             modelList.add(model);
+
                             textEditingController2.text = "";
                             textEditingController.text = "";
                             Navigator.pop(context);
