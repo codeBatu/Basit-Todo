@@ -36,7 +36,6 @@ class Model {
 class Model2 {
   String? title;
   String? data;
-  String? details;
 }
 
 List<Model2> modelList2 = [];
@@ -61,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                       context,
                       MaterialPageRoute(
                         builder: (builder) {
-                          return CompletedPage();
+                          return const CompletedPage();
                         },
                       ),
                     );
@@ -137,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   Model2 model2 = Model2();
                   model2.title = modelList[b].title;
-                  model2.details = modelList[b].details;
+
                   DateTime now = DateTime.now();
                   String formattedDate =
                       DateFormat('yyyy-MM-dd – kk:mm').format(now);
@@ -232,10 +231,11 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// ignore: must_be_immutable
 class DetailsPage extends StatelessWidget {
   String? todoTitle;
   String? todoDetails;
-  DetailsPage({this.todoTitle, this.todoDetails});
+  DetailsPage({Key? key, this.todoTitle, this.todoDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -258,6 +258,8 @@ class DetailsPage extends StatelessWidget {
 }
 
 class CompletedPage extends StatelessWidget {
+  const CompletedPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
